@@ -1,10 +1,9 @@
-import React from 'react'
+import React, {useState} from 'react'
 import ImagePicker from 'react-image-picker'
-
 //const images = require.context('../public/images', true);
 
 const ImageContainer = ({ data }) => {
-
+    const [images, setImage] = useState([]);
     var games = [];
 
     
@@ -14,13 +13,19 @@ const ImageContainer = ({ data }) => {
         games[j] = './public/images/' + data[j].img;
     }
 
+    const onPick = (images) => {
+      setImage({images});
+    }
+
+
     return (
         <div>
           <ImagePicker 
             images={games.map((image, i) => ({src: image, value: i}))}
-            //onPick={this.onPick}
+            onPick={onPick}
+            multiple
           />
-          <button type="button" onClick={() => console.log(this.state.image)}>OK</button>
+          <button type="button" onClick={() => console.log(images)}>Submit</button>
         </div>
     )
     
