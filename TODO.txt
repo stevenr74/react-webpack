@@ -1,0 +1,20 @@
+TODO:
+
+recommendation logic
+add games to db  - use a pk for identiy instead of generating one in imagecontainer
+separate db logic from app
+
+Implementation:
+
+
+Flow:
+User selects games they like (1-max) -> second row of suggestions appear based on selected game(s).
+Weightings are used to decide recommendations. There are a couple of ways to do this
+    option1 : load all games, use filters to find ones that match the selected. good: covers all games  bad: slow, not realistic with a larger set of data
+    option2: using a score -> if genre has a match, return games with highest scores. good: less calculations, covers all games but gets the best ones only. bad: score pregenartion? 
+
+-> How the hell do you realistically score a game for different kinds of players?
+    weighting based on genres they like
+    so a score should be relative to other games in that genre
+    mode - multiplayer vs singleplayer vs coop vs MMO 
+

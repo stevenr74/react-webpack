@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import ImagePicker from 'react-image-picker'
 //const images = require.context('../public/images', true);
 
-const ImageContainer = ({ data }) => {
+const ImageContainer = ({ data, getSelections }) => {
     const [images, setImage] = useState([]);
     var games = [];
 
@@ -25,7 +25,7 @@ const ImageContainer = ({ data }) => {
             onPick={onPick}
             multiple
           />
-          <button type="button" onClick={() => console.log(images)}>Submit</button>
+          <button type="button" onClick={() => getSelections(images)}>Submit</button>
         </div>
     )
     
