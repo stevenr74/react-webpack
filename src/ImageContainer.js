@@ -12,7 +12,7 @@ const ImageContainer = ({ data, getSelections }) => {
     return (
         <div>
           <ImagePicker 
-            images={data.map((values) => ({src: ('./public/images/' + values.img), value: values.pk}))}
+            images={data.map((values) => ({src: ('./public/images/' + values.img), value: values}))}
             onPick={onPick}
             multiple
           />

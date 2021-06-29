@@ -10,8 +10,8 @@ const wasmUrl = new URL("sql.js-httpvfs/dist/sql-wasm.wasm", import.meta.url);
 
 //TODO:
 // recommendation logic
-// add games to db  - use a pk for identiy instead of generating one in imagecontainer
 // separate db logic from app
+
 export function App() {
 
   const [data, setData] = useState([]);
@@ -64,29 +64,28 @@ export function App() {
 
   //recommends second row of games
   //so probably just get keywords eg genre and rating and then preform a search using those filters
-
   //create a sql query based on recieved values
-  const recommend = () => {
-    //multiple genres can come in, so we need to identify all possible genre matches then proceed
-    var selectedGames = [];
-    const values = Object.values(selections)
-    const input = values[0];
+  const recommend = (input) => {
+    //multiple genres can come in, so we need to identify all possible genre matches then generate a imagecontainer
 
-    console.log(input);
-    
-    for (var imgInfo in input){
-      console.log(imgInfo);
+    //if images exist
+    if(input.images){
+      (input.images).forEach(function(item){
+        console.log(item.value);
+      });
+      
+    }else {
+      //if images don't exist
     }
-
+    
     return (`select * from gamesToRecommend`)
   }
-
     
   return (
       
       <div className="app">
             {data.length ? <ImageContainer data={data} getSelections={getSelections}/> : <h1>Loading...</h1>}
-            {selections ? recommend() : null}
+            {selections ? recommend(selections) : null}
       </div>
   );
 }
