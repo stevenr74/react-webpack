@@ -64,20 +64,22 @@ export function App() {
 
   //recommends second row of games
   //so probably just get keywords eg genre and rating and then preform a search using those filters
-  //create a sql query based on recieved values
+  //pre-generate possible SQL queries to prevent injection
   const recommend = (input) => {
     //multiple genres can come in, so we need to identify all possible genre matches then generate a imagecontainer
-
-    //if images exist
+    //and users shouldn't be recommended games they selected
     if(input.images){
       (input.images).forEach(function(item){
+        
         console.log(item.value);
+        
+        //so loop through data and find games that match genre, have a high rating, and haven't been selected
+
       });
       
     }else {
       //if images don't exist
     }
-    
     return (`select * from gamesToRecommend`)
   }
     
