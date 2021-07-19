@@ -44,7 +44,7 @@ export function App() {
         wasmUrl.toString()
       );
     
-      return await worker.db.query(`select * from gamesToRecommend`);
+      return await worker.db.query(`select * from games`);
   }
   
   
@@ -57,7 +57,6 @@ export function App() {
           console.log(error);
       }
   };
-  
   
 
   useEffect(() => {
