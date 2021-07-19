@@ -1,6 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { createDbWorker } from "sql.js-httpvfs";
 import ImageContainer from './ImageContainer';
+import Title from './Title';
+//import loader from 'sass-loader';
+
+//import GetData from './db/GetData'
+
 
 const workerUrl = new URL(
   "sql.js-httpvfs/dist/sqlite.worker.js",
@@ -18,8 +23,11 @@ export function App() {
 
   const [selections, setSelections] = useState([]);
 
+  const [results, setResults] = useState([]);
+
 
   //one solution is to include a query when calling load - finding the right data
+  
   async function load() {
       const worker = await createDbWorker(
         [
@@ -38,8 +46,10 @@ export function App() {
     
       return await worker.db.query(`select * from gamesToRecommend`);
   }
-
+  
+  
   const retrieveData = async() => {
+      
       try {
           var response = await load();
           setData(response);
@@ -47,6 +57,8 @@ export function App() {
           console.log(error);
       }
   };
+  
+  
 
   useEffect(() => {
       retrieveData();
@@ -62,11 +74,12 @@ export function App() {
     setSelections(pics)
   }
 
-  //recommends second row of games
-  //so probably just get keywords eg genre and rating and then preform a search using those filters
-  //pre-generate possible SQL queries to prevent injection
+  //recommends second row of games? should we even have a second row?
+  //create prepared sqlite statements that get matches based on genre match (using inner join to create a combined table?)
+  //using these matches generate recommendations based on ratings
+
+
   const recommend = (input) => {
-    //multiple genres can come in, so we need to identify all possible genre matches then generate a imagecontainer
     //and users shouldn't be recommended games they selected
     if(input.images){
       (input.images).forEach(function(item){
@@ -80,12 +93,15 @@ export function App() {
     }else {
       //if images don't exist
     }
-    return (`select * from gamesToRecommend`)
+    return 0;
+    //return (`select * from gamesToRecommend`)
   }
     
   return (
-      
+              //maybe just use the first 5 or 6 values from data for the initial imagecontainer
+              //{results ? <ImageContainer data={data} getSelections={getSelections}/> : null}
       <div className="app">
+            <Title />
             {data.length ? <ImageContainer data={data} getSelections={getSelections}/> : <h1>Loading...</h1>}
             {selections ? recommend(selections) : null}
       </div>

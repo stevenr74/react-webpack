@@ -1,19 +1,59 @@
-h1 {
-    color: blue;
-}
-
 body {
     background-color: #222226;
 }
 
+h1 {
+  color: white;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.title {
+  background-color: #303036;
+  padding: 10px;
+}
+
+button {
+  background-color: #46199c;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: block;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+button:hover {
+  background-color:#2a0e5e;
+  color: white;
+}
+
+
 .image_picker {
     width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
   
     .responsive {
-      position: relative;
-      margin: 0 6px;
-      float: left;
+      //position: relative;
+      //margin: 0 6px;
+      //float: center;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      display: inline-block;
       opacity: 1;
+
+      //display: flex;
+      //align-items: center;
+      //justify-content: center;
   
       .thumbnail {
         border: 1px solid #ddd; /* Gray border */
@@ -51,15 +91,9 @@ body {
         bottom: 0;
         right: 0;
   
-        .icon {
-          background: '../public/images/bcd1a436590360ed53ac2f46c76e43e4.png';
-          background-size: cover;
-          height: 75px;
-          width: 75px;
-        }
       }
     }
     .clear {
         clear: both;
       }
-    }
+}
