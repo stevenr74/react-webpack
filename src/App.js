@@ -83,7 +83,7 @@ export function App() {
     if(input.images){
       (input.images).forEach(function(item){
         
-        console.log(item.value);
+        console.log(item.value.subgenre);
         
         //so loop through data and find games that match genre, have a high rating, and haven't been selected
 
