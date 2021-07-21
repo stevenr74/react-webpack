@@ -24,7 +24,7 @@ def data_entry():
     c.execute("INSERT INTO devices (name, img) VALUES ('windows', 'windows.jpg')")
     c.execute("INSERT INTO devices (name, img) VALUES ('xbox', 'xbox.jpg')")
     c.execute("INSERT INTO devices (name, img) VALUES ('playstation', 'ps.jpg')")
-    c.execute("INSERT INTO devices (name, img) VALUES ('nintendo', 'switch.jpg')")
+    c.execute("INSERT INTO devices (name, img) VALUES ('nintendo', 'nintendo.jpg')")
     c.execute("INSERT INTO devices (name, img) VALUES ('OSX', 'osx.jpg')")
     c.execute("INSERT INTO devices (name, img) VALUES ('Linux', 'linux.jpg')")
 
@@ -67,7 +67,6 @@ def data_entry():
         ('Rainbow Six Siege', 2015, 'siege.jpg', 94, 'Shooter', 'multiplayer'),
         ('Stardew Valley', 2016, 'stardew.jpg', 95, 'Life Simulation', 'single/multi')
     ]
-
     game_device_list = [
         ('World of Warcraft', 'windows'),
         ('Final Fantasy 14', 'windows'),
@@ -82,23 +81,23 @@ def data_entry():
         ('Minecraft', 'windows'),
         ('Minecraft', 'osx'),
         ('Minecraft', 'linux'),
-        ('Minecraft', 'switch'),
+        ('Minecraft', 'nintendo'),
         ('Minecraft', 'xbox'),
         ('Rocket League', 'playstation'),
         ('Rocket League', 'windows'),
         ('Rocket League', 'osx'),
-        ('Rocket League', 'switch'),
+        ('Rocket League', 'nintendo'),
         ('Rocket League', 'xbox'),
         ('Rocket League', 'linux'),
         ('Fortnite', 'playstation'),
         ('Fortnite', 'windows'),
-        ('Fortnite', 'switch'),
+        ('Fortnite', 'nintendo'),
         ('Fortnite', 'xbox'),
         ('Fortnite', 'osx'),
         ('Overwatch', 'playstation'),
         ('Overwatch', 'windows'),
         ('Overwatch', 'xbox'),
-        ('Overwatch', 'switch'),
+        ('Overwatch', 'nintendo'),
         ('Rainbow Six Siege', 'playstation'),
         ('Rainbow Six Siege', 'windows'),
         ('Rainbow Six Siege', 'xbox'),
@@ -106,7 +105,7 @@ def data_entry():
         ('Stardew Valley', 'windows'),
         ('Stardew Valley', 'osx'),
         ('Stardew Valley', 'linux'),
-        ('Stardew Valley', 'switch'),
+        ('Stardew Valley', 'nintendo'),
         ('Stardew Valley', 'xbox'),
     ]
 
