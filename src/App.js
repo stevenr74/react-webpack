@@ -64,11 +64,6 @@ export function App() {
   const getSelections = (pics) => {
     setSelections(pics)
   }
-
-  //recommends second row of games? should we even have a second row?
-  //using these matches generate recommendations based on ratings
-  //and users shouldn't be recommended games they selected
-
   
   const retrieveResults = async() => {
     try {
@@ -79,8 +74,12 @@ export function App() {
       console.log(error);
     }
   }
-  
+
+  //recommends second row of games? should we even have a second row?
+  //using these matches generate recommendations based on ratings
+  //and users shouldn't be recommended games they selected
   async function selectGenres(selections) {
+    const returnLimit = 10;
     var genres = [];
     var query = `SELECT title, rating, mode, games.img, games.subgenre, genres.genre FROM games INNER JOIN subgenres on subgenres.subgenre = games.subgenre INNER JOIN genres on genres.genre = subgenres.genre WHERE`;
 
@@ -110,6 +109,8 @@ export function App() {
       query = query.concat(` genres.genre = '`+element+`'`)
       if(element != (unique_genres.slice(-1)[0])){
         query = query.concat(` OR`)
+      } else {
+        query = query.concat(` ORDER BY rating DESC LIMIT `+returnLimit+`;`);
       }
     });
 
@@ -121,7 +122,7 @@ export function App() {
       <div className="app">
             <Title />
             {data.length ? <ImageContainer data={data} getSelections={getSelections}/> : null}
-            {results.length ? <ImageContainer data={results} getSelections={getSelections}/>: null}
+            {results.length ? <ImageContainer data={results} getSelections={null}/>: null}
       </div>
   );
 }

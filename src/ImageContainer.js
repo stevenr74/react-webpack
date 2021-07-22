@@ -4,6 +4,8 @@ import ImagePicker from 'react-image-picker'
 const ImageContainer = ({ data, getSelections }) => {
 
     const [images, setImage] = useState([]);
+    //const [isPickable, setPickibility] = useState(true);
+
 
     const onPick = (images) => {
       setImage({images});
@@ -22,3 +24,5 @@ const ImageContainer = ({ data, getSelections }) => {
 };
 
 export default ImageContainer;
+
+//() => getSelections(images)
