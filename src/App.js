@@ -68,7 +68,23 @@ export function App() {
   const retrieveResults = async() => {
     try {
       var resulting = await selectGenres(selections);
-      //console.log(resulting);
+      var removes = [];
+      
+      //resulting contains genre matches, so filter out any selections
+      resulting.forEach(element => {
+        selections.images.forEach(picked => {
+          if(element.title == picked.value.title){
+            removes.push(element);
+          }
+        });
+      });
+      removes.forEach(remove => {
+        var index = resulting.indexOf(remove);
+        if(index > -1){
+          resulting.splice(index, 1);
+        }
+      });
+      //console.log('isinit: ' + isInitialMount.current);
       setResults(resulting)
     } catch {
       console.log(error);
@@ -77,7 +93,6 @@ export function App() {
 
   //recommends second row of games? should we even have a second row?
   //using these matches generate recommendations based on ratings
-  //and users shouldn't be recommended games they selected
   async function selectGenres(selections) {
     const returnLimit = 10;
     var genres = [];
@@ -118,11 +133,10 @@ export function App() {
   }
 
   return (
-              //maybe just use the first 5 or 6 values from data for the initial imagecontainer
       <div className="app">
             <Title />
-            {data.length ? <ImageContainer data={data} getSelections={getSelections}/> : null}
-            {results.length ? <ImageContainer data={results} getSelections={null}/>: null}
+            {data.length ? <ImageContainer data={data} getSelections={getSelections} renderButton={true}/> : null}
+            {results.length ? <ImageContainer data={results} getSelections={null} renderButton={isInitialMount.current}/>: null}
       </div>
   );
 }

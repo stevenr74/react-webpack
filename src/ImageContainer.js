@@ -1,11 +1,12 @@
 import React, {useState} from 'react'
 import ImagePicker from 'react-image-picker'
 
-const ImageContainer = ({ data, getSelections }) => {
+const ImageContainer = ({ data, getSelections, renderButton }) => {
 
     const [images, setImage] = useState([]);
-    //const [isPickable, setPickibility] = useState(true);
+    const [isPickable, setPickibility] = useState(true);
 
+    console.log('render: ' + renderButton)
 
     const onPick = (images) => {
       setImage({images});
@@ -18,11 +19,9 @@ const ImageContainer = ({ data, getSelections }) => {
             onPick={onPick}
             multiple
           />
-          <button type="button" onClick={() => getSelections(images)}>Submit</button>
+          {renderButton ? <button type="button" onClick={() => getSelections(images)}>Submit</button> : null}
         </div>
     )
 };
 
 export default ImageContainer;
-
-//() => getSelections(images)
