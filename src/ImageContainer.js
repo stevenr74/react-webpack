@@ -5,7 +5,6 @@ const ImageContainer = ({ data, getSelections, renderButton }) => {
 
     const [images, setImage] = useState([]);
 
-    console.log('render: ' + renderButton)
 
     const onPick = (images) => {
       setImage({images});
