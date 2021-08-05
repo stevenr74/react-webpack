@@ -3,7 +3,7 @@ const path = require('path');
 module.exports = {
     mode: 'production',
     output: {
-        path: '/',
+        path: path.join(__dirname, './'),
         filename: 'index.bundle.js',
     },
     devServer: {
@@ -30,5 +30,3 @@ module.exports = {
         ]
     }
 };
-
-        //path: path.join(__dirname, '/docs'),
