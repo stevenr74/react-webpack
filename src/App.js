@@ -35,7 +35,7 @@ export function App() {
         wasmUrl.toString()
       );
     
-      return await worker.db.query(`SELECT title, rating, mode, games.img, games.subgenre, genres.genre FROM games INNER JOIN subgenres on subgenres.subgenre = games.subgenre INNER JOIN genres on genres.genre = subgenres.genre LIMIT 8`);
+      return await worker.db.query(`SELECT title, rating, mode, games.img, games.subgenre, genres.genre FROM games INNER JOIN subgenres on subgenres.subgenre = games.subgenre INNER JOIN genres on genres.genre = subgenres.genre ORDER BY RANDOM() LIMIT 8`);
   }
 
   const retrieveData = async() => {

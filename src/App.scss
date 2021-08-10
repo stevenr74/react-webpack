@@ -71,6 +71,8 @@ button:hover {
         width: 150px; /* Set a small width */
         opacity: 1;
         margin: 0;
+        
+        //background-position: center bottom;
   
         &:hover {
           box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.7);
