@@ -2,6 +2,7 @@ import React, { useEffect, useState, useRef } from 'react';
 import { createDbWorker } from "sql.js-httpvfs";
 import ImageContainer from './ImageContainer';
 import Title from './Title';
+import Results from './Results';
 
 //import { load, selectGenres } from './db/GetData.js';
 
@@ -136,6 +137,7 @@ export function App() {
       <div className="app">
             <Title />
             {data.length ? <ImageContainer data={data} getSelections={getSelections} renderButton={true}/> : null}
+            {results.length ? <Results /> : null}
             {results.length ? <ImageContainer data={results} getSelections={null} renderButton={isInitialMount.current}/>: null}
       </div>
   );

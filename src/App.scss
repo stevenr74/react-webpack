@@ -13,6 +13,13 @@ h1 {
   padding: 10px;
 }
 
+.results {
+  color:white;
+  padding-top: 20px;
+  text-align: center;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
 button {
   background-color: #3a3b42;
   border: none;
@@ -37,7 +44,7 @@ button:hover {
 
 
 .image_picker {
-    width: 100%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
