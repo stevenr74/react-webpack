@@ -1,10 +1,7 @@
 TODO:
 
 recommendation logic
-add games to db  - use a pk for identiy instead of generating one in imagecontainer
 separate db logic from app
-
-Implementation:
 
 
 Flow:
@@ -18,3 +15,5 @@ Weightings are used to decide recommendations. There are a couple of ways to do 
     so a score should be relative to other games in that genre
     mode - multiplayer vs singleplayer vs coop vs MMO 
 
+
+run cmd webpack to prepare files for hosting

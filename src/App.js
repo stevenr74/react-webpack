@@ -85,15 +85,14 @@ export function App() {
           resulting.splice(index, 1);
         }
       });
-      //console.log('isinit: ' + isInitialMount.current);
+      
       setResults(resulting)
     } catch {
       console.log(error);
     }
   }
 
-  //recommends second row of games? should we even have a second row?
-  //using these matches generate recommendations based on ratings
+  //should there be a second recommendation row?
   async function selectGenres(selections) {
     const returnLimit = 10;
     var genres = [];
@@ -118,7 +117,7 @@ export function App() {
       genres.push(item.value.genre);
     });
 
-    //generating a list based on selected genres. how to weight how many times a genre was selected?
+    //generating a list based on selected genres
     const unique_genres = [...new Set(genres)];
     
     unique_genres.forEach(element => {
