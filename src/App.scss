@@ -5,10 +5,20 @@ body {
 h1 {
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  text-align: center;
+  //text-align: center;
+  //display: inline-block;
+  //margin: 0 auto;
   //display: inline;
-
+  //top: 50%;
+  //left: 50%;
   //justify-self: center;
+  //position: absolute;
+
+  top: 30%;
+  left: 50%;
+  transform: translate(-50% , -50%);
+  position: absolute;
+  
 }
 
 .title {
@@ -17,18 +27,19 @@ h1 {
   //text-align: center;
   //display: inline;
   //justify-content: center;
-  
-
-  max-height: 35vw;
+  position: relative;
+  text-align: center;
+  overflow: hidden;
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 900px) {
   .title {
     max-height: 20vw;
   }
   
   h1 {
-    font-size: 5vw;
+    font-size: 3.5vw;
+    left: 60%;
   }
 
   .info {
