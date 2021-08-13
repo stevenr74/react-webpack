@@ -3,7 +3,10 @@ import { createDbWorker } from "sql.js-httpvfs";
 import ImageContainer from './ImageContainer';
 import Title from './Title';
 import Results from './Results';
+import { IconContext, Shuffle } from "phosphor-react"
 
+import Info from './Info';
+//import refresh from './icons/refresh.jpg';
 //import { load, selectGenres } from './db/GetData.js';
 
 const workerUrl = new URL(
@@ -16,6 +19,9 @@ export function App() {
   const [data, setData] = useState([]);
   const [selections, setSelections] = useState([]);
   const [results, setResults] = useState([]);
+
+  //new
+  const [about, setAbout] = useState(false);
 
   const isInitialMount = useRef(true);
 
@@ -92,6 +98,14 @@ export function App() {
     }
   }
 
+  function refreshPage(){
+    window.location.reload();
+  }
+
+  function info(){
+    setAbout(true);
+  }
+
   //should there be a second recommendation row?
   async function selectGenres(selections) {
     const returnLimit = 10;
@@ -117,7 +131,6 @@ export function App() {
       genres.push(item.value.genre);
     });
 
-    //generating a list based on selected genres
     const unique_genres = [...new Set(genres)];
     
     unique_genres.forEach(element => {
@@ -134,7 +147,8 @@ export function App() {
 
   return (
       <div className="app">
-            <Title />
+            <Title refreshPage={refreshPage} info={info} />
+            {about ? <Info></Info> : null}
             {data.length ? <ImageContainer data={data} getSelections={getSelections} renderButton={true}/> : null}
             {results.length ? <Results /> : null}
             {results.length ? <ImageContainer data={results} getSelections={null} renderButton={isInitialMount.current}/>: null}
