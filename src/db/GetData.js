@@ -7,54 +7,53 @@ const workerUrl = new URL(
   );
 const wasmUrl = new URL("sql.js-httpvfs/dist/sql-wasm.wasm", import.meta.url);
 
-export class GetData{
-    async load() {
-        const worker = await createDbWorker(
-            [
-                {
-                from: "inline",
-                config: {
-                    serverMode: "full",
-                    url: "/games.db",
-                    requestChunkSize: 4096,
-                },
-                },
-            ],
-            workerUrl.toString(),
-            wasmUrl.toString()
-        );
-    
-        return await worker.db.query(`select * from games`);
-    }
+const workerSettings =  
+    [
+        {
+        from: "inline",
+        config: {
+            serverMode: "full",
+            url: "/games.db",
+            requestChunkSize: 4096,
+        },
+        },
+    ];
 
-    retrieveData = async() => {
-        try {
-            var response = await load();
-            setData(response);
-        } catch(error){
-            console.log(error);
-        }
-    };
-
-    //given an array of genres that were selected by user, return
-    //games based on genre matching & scoring.
-    async selectGenres(genres) {
-        const worker = await createDbWorker(
-            [
-                {
-                from: "inline",
-                config: {
-                    serverMode: "full",
-                    url: "/games.db",
-                    requestChunkSize: 4096,
-                },
-                },
-            ],
-            workerUrl.toString(),
-            wasmUrl.toString()
-        );
-
-        return await worker.db.query(`SELECT * FROM games INNER JOIN subgenres on subgenres.name = games.subgenre WHERE subgenres.genre = `);
-    }
+export async function load() {
+    const worker = await createDbWorker(
+      workerSettings,
+      workerUrl.toString(),
+      wasmUrl.toString()
+    );
+  
+    return await worker.db.query(`SELECT title, rating, mode, games.img, games.subgenre, genres.genre FROM games INNER JOIN subgenres on subgenres.subgenre = games.subgenre INNER JOIN genres on genres.genre = subgenres.genre ORDER BY RANDOM() LIMIT 8`);
 }
 
+export async function selectGenres(selections) {
+    const returnLimit = 10;
+    var genres = [];
+    var query = `SELECT title, rating, mode, games.img, games.subgenre, genres.genre FROM games INNER JOIN subgenres on subgenres.subgenre = games.subgenre INNER JOIN genres on genres.genre = subgenres.genre WHERE`;
+
+    const worker = await createDbWorker(
+        workerSettings,
+        workerUrl.toString(),
+        wasmUrl.toString()
+    );
+
+    selections.images.forEach(function(item){
+      genres.push(item.value.genre);
+    });
+
+    const unique_genres = [...new Set(genres)];
+    
+    unique_genres.forEach(element => {
+      query = query.concat(` genres.genre = '`+element+`'`)
+      if(element != (unique_genres.slice(-1)[0])){
+        query = query.concat(` OR`)
+      } else {
+        query = query.concat(` ORDER BY rating DESC LIMIT `+returnLimit+`;`);
+      }
+    });
+
+    return await worker.db.query(query);
+}

@@ -5,14 +5,6 @@ body {
 h1 {
   color: white;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
-  //text-align: center;
-  //display: inline-block;
-  //margin: 0 auto;
-  //display: inline;
-  //top: 50%;
-  //left: 50%;
-  //justify-self: center;
-  //position: absolute;
 
   top: 30%;
   left: 50%;
@@ -24,9 +16,6 @@ h1 {
 .title {
   background-color: #303036;
   padding: 10px;
-  //text-align: center;
-  //display: inline;
-  //justify-content: center;
   position: relative;
   text-align: center;
   overflow: hidden;
@@ -64,14 +53,9 @@ h1 {
 }
 
 .shuffle {
-  //display: inline-block;
   margin: 10px;
-  //margin-top: 16px;
   border-radius: 25px;
   float: left;
-  //display: flex;
-  //align-items: center;
-  //justify-self: left;
 }
 
 .shuffle:hover {
@@ -109,19 +93,14 @@ button:hover {
     padding: 20px;
   
     .responsive {
-      //position: relative;
-      //margin: 0 6px;
-      //float: center;
+
       margin-left: auto;
       margin-right: auto;
       text-align: center;
       display: inline-block;
       opacity: 1;
 
-      //display: flex;
-      //align-items: center;
-      //justify-content: center;
-  
+
       .thumbnail {
         border: 1px solid #ddd; /* Gray border */
         border-radius: 4px;  /* Rounded border */
