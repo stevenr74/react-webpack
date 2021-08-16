@@ -1,48 +1,17 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { createDbWorker } from "sql.js-httpvfs";
 import ImageContainer from './ImageContainer';
 import Title from './Title';
 import Results from './Results';
-import { IconContext, Shuffle } from "phosphor-react"
-
 import Info from './Info';
-//import refresh from './icons/refresh.jpg';
-//import { load, selectGenres } from './db/GetData.js';
+import { load, selectGenres } from './db/GetData.js';
 
-const workerUrl = new URL(
-  "sql.js-httpvfs/dist/sqlite.worker.js",
-  import.meta.url
-);
-const wasmUrl = new URL("sql.js-httpvfs/dist/sql-wasm.wasm", import.meta.url);
 
 export function App() {
   const [data, setData] = useState([]);
   const [selections, setSelections] = useState([]);
   const [results, setResults] = useState([]);
-
-  //new
   const [about, setAbout] = useState(false);
-
   const isInitialMount = useRef(true);
-
-  async function load() {
-      const worker = await createDbWorker(
-        [
-          {
-            from: "inline",
-            config: {
-              serverMode: "full",
-              url: "/games.db",
-              requestChunkSize: 4096,
-            },
-          },
-        ],
-        workerUrl.toString(),
-        wasmUrl.toString()
-      );
-    
-      return await worker.db.query(`SELECT title, rating, mode, games.img, games.subgenre, genres.genre FROM games INNER JOIN subgenres on subgenres.subgenre = games.subgenre INNER JOIN genres on genres.genre = subgenres.genre ORDER BY RANDOM() LIMIT 8`);
-  }
 
   const retrieveData = async() => {
       try {
@@ -104,45 +73,6 @@ export function App() {
 
   function info(){
     setAbout(true);
-  }
-
-  //should there be a second recommendation row?
-  async function selectGenres(selections) {
-    const returnLimit = 10;
-    var genres = [];
-    var query = `SELECT title, rating, mode, games.img, games.subgenre, genres.genre FROM games INNER JOIN subgenres on subgenres.subgenre = games.subgenre INNER JOIN genres on genres.genre = subgenres.genre WHERE`;
-
-    const worker = await createDbWorker(
-        [
-            {
-            from: "inline",
-            config: {
-                serverMode: "full",
-                url: "/games.db",
-                requestChunkSize: 4096,
-            },
-            },
-        ],
-        workerUrl.toString(),
-        wasmUrl.toString()
-    );
-
-    selections.images.forEach(function(item){
-      genres.push(item.value.genre);
-    });
-
-    const unique_genres = [...new Set(genres)];
-    
-    unique_genres.forEach(element => {
-      query = query.concat(` genres.genre = '`+element+`'`)
-      if(element != (unique_genres.slice(-1)[0])){
-        query = query.concat(` OR`)
-      } else {
-        query = query.concat(` ORDER BY rating DESC LIMIT `+returnLimit+`;`);
-      }
-    });
-
-    return await worker.db.query(query);
   }
 
   return (
