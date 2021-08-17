@@ -13,7 +13,7 @@ const workerSettings =
         from: "inline",
         config: {
             serverMode: "full",
-            url: "/games.db",
+            url: "./src/db/games.db",
             requestChunkSize: 4096,
         },
         },
