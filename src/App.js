@@ -72,7 +72,11 @@ export function App() {
   }
 
   function info(){
-    setAbout(true);
+    if(about == false){
+      setAbout(true);
+    } else {
+      setAbout(false);
+    }
   }
 
   return (
