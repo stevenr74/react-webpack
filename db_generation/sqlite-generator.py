@@ -70,13 +70,18 @@ def data_entry():
         ('Fallout: New Vegas', 2010, 'fonv.jpg', 97, 'Action RPG', 'singleplayer'),
         ('Fall Guys: Ultimate Knockout', 2020, 'fallguys.jpg', 87, 'Platformer', 'multiplayer'),
         ('Valorant', 2020, 'valorant.jpg', 90, 'Shooter', 'multiplayer'),
-        ('League of Legends', 2009, 'lol.jpg', 95, 'Action RPG', 'singleplayer'),
+        ('League of Legends', 2009, 'lol.jpg', 95, 'Battle Royale', 'singleplayer'),
         ('Starbound', 2016, 'starbound.jpg', 94, 'Life Simulation', 'singleplayer'),
         ('Forza Horizon 4', 2018, 'forza4.jpg', 96, 'Racing', 'single/multi'),
         ('Need for Speed Heat', 2019, 'needforspeedheat.jpg', 92, 'Racing', 'single/multi'),
-        ('Star Wars Jedi: Fallen Order', 2019, 'fallenorder.jpg', 94, 'Fighting', 'singleplayer')
+        ('Star Wars Jedi: Fallen Order', 2019, 'fallenorder.jpg', 94, 'Fighting', 'singleplayer'),
+        ('Super Meat Boy', 2010, 'supermeatboy.jpg', 91, 'Platformer', 'singleplayer'),
+        ('Hollow Knight', 2017, 'hollowknight.jpg', 95, 'Platformer', 'singleplayer'),
+        ('Apex Legends', 2019, 'apexlegends.jpg', 94, 'Battle Royale', 'multiplayer'),
+        ('Destiny 2', 2017, 'destiny2.jpg', 86, 'Shooter', 'multiplayer'),
     ]
     
+    #need to update when implementing game devices
     game_device_list = [
         ('World of Warcraft', 'windows'),
         ('Final Fantasy 14', 'windows'),
