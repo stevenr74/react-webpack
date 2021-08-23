@@ -23,7 +23,6 @@ const ImageContainer = ({ data, getSelections, renderButton }) => {
           <ImagePicker 
             images={data.map((values) => ({src: initImages[values.img].default, value: values}))}
             onPick={onPick}
-            maxPicks={1}
             multiple
           />
           {renderButton ? <button type="button" onClick={() => getSelections(images)}>Submit</button> : null}
