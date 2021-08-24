@@ -6,10 +6,8 @@ c = conn.cursor()
 def create_table():
     c.execute('CREATE TABLE genres(genre TEXT PRIMARY KEY, description TEXT)')
     c.execute('CREATE TABLE devices(name TEXT PRIMARY KEY, img TEXT)')
-    #c.execute('CREATE TABLE modes(name TEXT PRIMARY KEY, description TEXT)')
     c.execute('CREATE TABLE subgenres(subgenre TEXT PRIMARY KEY, description TEXT, genre TEXT, FOREIGN KEY(genre) REFERENCES genres(genre))')
     c.execute('CREATE TABLE games(title TEXT PRIMARY KEY, releasedate INTEGER, img TEXT, rating INTEGER, subgenre TEXT, mode TEXT, FOREIGN KEY(subgenre) REFERENCES subgenres(subgenre) )')
-    #c.execute('CREATE TABLE games_modes(game, mode, FOREIGN KEY(game) REFERENCES games(title), FOREIGN KEY(mode) REFERENCES modes(name))')
     c.execute('CREATE TABLE games_devices(game, device, FOREIGN KEY(game) REFERENCES games(title), FOREIGN KEY(device) REFERENCES devices(name))')
 
 def data_entry():
