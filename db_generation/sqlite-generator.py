@@ -50,26 +50,27 @@ def data_entry():
     c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('4X', 'Explore, expand, exploit, exterminate', 'Strategy')")
     c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('RTS', 'Real time strategy, make decisions where game time is continuous', 'Strategy')")
     c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('TBT', 'Turn based tactics', 'Strategy')")
+    #Action-Adventure
+    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Sandbox', 'Do anything, build everything', 'Action-Adventure')")
     
     #Games
-    #todo: make stardew valley and terraria match?
     game_list = [
         ('World of Warcraft', 2004, 'wow.jpg', 85, 'MMORPG', 'multiplayer'),
         ('Final Fantasy 14', 2013, 'ff14.jpg', 87, 'MMORPG', 'multiplayer'),
         ('Pillars of Eternity', 2015, 'poe.jpg', 89, 'Isometric RPG', 'singleplayer'),
         ('FIFA 20', 2019, 'fifa20.jpg', 79, 'Sports', 'single/multi'),
-        ('Minecraft', 2011, 'minecraft.jpg', 93, 'Life Simulation', 'single/multi'),
+        ('Minecraft', 2011, 'minecraft.jpg', 93, 'Sandbox', 'single/multi'),
         ('Rocket League', 2015, 'rocketleague.jpg', 95, 'Competitive', 'multiplayer'),
         ('Fortnite', 2017, 'fortnite.jpg', 81, 'Battle Royale', 'multiplayer'),
         ('Overwatch', 2016, 'overwatch.jpg', 91, 'Shooter', 'multiplayer'),
         ('Rainbow Six Siege', 2015, 'siege.jpg', 94, 'Shooter', 'multiplayer'),
-        ('Stardew Valley', 2016, 'stardew.jpg', 95, 'Life Simulation', 'single/multi'),
+        ('Stardew Valley', 2016, 'stardew.jpg', 95, 'Sandbox', 'single/multi'),
         ('The Witcher 3: Wild Hunt', 2015, 'witcher3.jpg', 95, 'Action RPG', 'singleplayer'),
         ('Fallout: New Vegas', 2010, 'fonv.jpg', 97, 'Action RPG', 'singleplayer'),
         ('Fall Guys: Ultimate Knockout', 2020, 'fallguys.jpg', 87, 'Platformer', 'multiplayer'),
         ('Valorant', 2020, 'valorant.jpg', 90, 'Shooter', 'multiplayer'),
         ('League of Legends', 2009, 'lol.jpg', 95, 'Battle Royale', 'singleplayer'),
-        ('Starbound', 2016, 'starbound.jpg', 94, 'Life Simulation', 'singleplayer'),
+        ('Starbound', 2016, 'starbound.jpg', 94, 'Sandbox', 'singleplayer'),
         ('Forza Horizon 4', 2018, 'forza4.jpg', 96, 'Racing', 'single/multi'),
         ('Need for Speed Heat', 2019, 'needforspeedheat.jpg', 92, 'Racing', 'single/multi'),
         ('Star Wars Jedi: Fallen Order', 2019, 'fallenorder.jpg', 94, 'Fighting', 'singleplayer'),
@@ -77,6 +78,10 @@ def data_entry():
         ('Hollow Knight', 2017, 'hollowknight.jpg', 95, 'Platformer', 'singleplayer'),
         ('Apex Legends', 2019, 'apexlegends.jpg', 94, 'Battle Royale', 'multiplayer'),
         ('Destiny 2', 2017, 'destiny2.jpg', 86, 'Shooter', 'multiplayer'),
+        ('Valheim', 2021, 'valheim.jpg', 94, 'Sandbox', 'single/multi'),
+        ('Ark: Survival Evolved', 2017, 'ark.jpg', 94, 'Survival', 'single/multi'),
+        ('Satisfactory', 2019, 'satisfactory.jpg', 94, 'Sandbox', 'singleplayer'),
+        ('Ghost of Tsushima', 2020, 'ghosts.jpg', 96, 'Fighting', 'singleplayer'),
     ]
     
     #need to update when implementing game devices
