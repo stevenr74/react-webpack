@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from 'react';
-import ImageContainer from './ImageContainer';
-import Title from './Title';
-import Results from './Results';
-import Info from './Info';
-import { load, selectGenres } from './db/GetData.js';
+import ImageContainer from './components/ImageContainer';
+import Title from './components/Title';
+import Results from './components/Results';
+import Info from './components/Info';
+import {load, selectGenres} from './db/GetData.js';
 
 
 export function App() {
