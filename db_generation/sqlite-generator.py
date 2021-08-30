@@ -82,6 +82,13 @@ def data_entry():
         ('Ark: Survival Evolved', 2017, 'ark.jpg', 94, 'Survival', 'single/multi'),
         ('Satisfactory', 2019, 'satisfactory.jpg', 94, 'Sandbox', 'singleplayer'),
         ('Ghost of Tsushima', 2020, 'ghosts.jpg', 96, 'Fighting', 'singleplayer'),
+        ('RimWorld', 2016, 'rimworld.jpg', 96, 'Sandbox', 'singleplayer'),
+        ('Factorio', 2013, 'factorio.jpg', 96, 'Sandbox', 'singleplayer'),
+        ('Prison Architect', 2015, 'prisonarchitect.jpg', 96, 'Sandbox', 'singleplayer'),
+        ('Divinity: Original Sin', 2014, 'divinity1.jpg', 86, 'Isometric RPG', 'single/multi'),
+        ('Divinity: Original Sin II', 2014, 'divinity2.jpg', 91, 'Isometric RPG', 'single/multi'),
+        ('Pathfinder: Kingmaker', 2017, 'pathfinder.jpg', 91, 'Isometric RPG', 'singleplayer'),
+        ('Disco Elysium', 2019, 'discoelysium.jpg', 91, 'Isometric RPG', 'singleplayer'),
     ]
     
     #need to update when implementing game devices
