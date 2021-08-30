@@ -11,49 +11,46 @@ def create_table():
     c.execute('CREATE TABLE games_devices(game, device, FOREIGN KEY(game) REFERENCES games(title), FOREIGN KEY(device) REFERENCES devices(name))')
 
 def data_entry():
-    #Genres
-    c.execute("INSERT INTO genres (genre, description) VALUES ('Action', 'Physical challenges during a level')")
-    c.execute("INSERT INTO genres (genre, description) VALUES ('Adventure', 'Interactive story with exploration and puzzle solving')")
-    c.execute("INSERT INTO genres (genre, description) VALUES ('Action-Adventure', 'Skill of action games combined with storyline from adventure games')")
-    c.execute("INSERT INTO genres (genre, description) VALUES ('RPG', 'Role playing with character development in a defined world')")
-    c.execute("INSERT INTO genres (genre, description) VALUES ('Simulation', 'Simulating real life situations')")
-    c.execute("INSERT INTO genres (genre, description) VALUES ('Strategy', 'Skillful thinking and planning to achieve victory')")
-    #Devices
-    c.execute("INSERT INTO devices (name, img) VALUES ('windows', 'windows.jpg')")
-    c.execute("INSERT INTO devices (name, img) VALUES ('xbox', 'xbox.jpg')")
-    c.execute("INSERT INTO devices (name, img) VALUES ('playstation', 'ps.jpg')")
-    c.execute("INSERT INTO devices (name, img) VALUES ('nintendo', 'nintendo.jpg')")
-    c.execute("INSERT INTO devices (name, img) VALUES ('OSX', 'osx.jpg')")
-    c.execute("INSERT INTO devices (name, img) VALUES ('Linux', 'linux.jpg')")
+    device_list = [
+        ('windows', 'windows.jpg'),
+        ('xbox', 'xbox.jpg'),
+        ('playstation', 'ps.jpg'),
+        ('nintendo', 'nintendo.jpg'),
+        ('OSX', 'osx.jpg'),
+        ('Linux', 'linux.jpg'),
+    ]
 
-    #Subgenres
-    #Action
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Shooter', 'Defeating enemies using weapons ', 'Action')")
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Fighting', 'Close combat between players', 'Action')")
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Survival', 'Survive the world and enemies', 'Action')")
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Stealth', 'Sneakily accomplish story objectives', 'Action')")
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Battle Royale', 'Compete against many other players in open arenas', 'Action')")
-    #RPG
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('MMORPG', 'Massively multiplayer role playing game', 'RPG')")
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Action RPG', 'Control over character with rpg mechanics', 'RPG')")
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Roguelike', 'Dungeon crawl through procedurally generated levels', 'RPG')")
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('JRPG', 'Japanese style role playing game', 'RPG')")
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Isometric RPG', 'Role playing game with parallel projection', 'RPG')")
-    #Sports
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Racing', 'Driving cars fast', 'Simulation')")
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Life Simulation', 'Controlling one or more artifical lives', 'Simulation')")
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Sports', 'Playing sports that simulate those in real life', 'Simulation')")
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Competitive', 'Non-real life sports turned competitive', 'Simulation')")
-    #Adventure
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Platformer', 'Exploration and puzzle solving', 'Adventure')")
-    #Strategy
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('4X', 'Explore, expand, exploit, exterminate', 'Strategy')")
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('RTS', 'Real time strategy, make decisions where game time is continuous', 'Strategy')")
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('TBT', 'Turn based tactics', 'Strategy')")
-    #Action-Adventure
-    c.execute("INSERT INTO subgenres (subgenre, description, genre) VALUES ('Sandbox', 'Do anything, build everything', 'Action-Adventure')")
-    
-    #Games
+    genre_list = [
+        ('Action', 'Physical challenges during a level'),
+        ('Adventure', 'Interactive story with exploration and puzzle solving'),
+        ('Action-Adventure', 'Skill of action games combined with storyline from adventure games'),
+        ('RPG', 'Role playing with character development in a defined world'),
+        ('Simulation', 'Simulating real life situations'),
+        ('Strategy', 'Skillful thinking and planning to achieve victory'),
+    ]
+
+    subgenre_list = [
+        ('Shooter', 'Defeating enemies using weapons ', 'Action'),
+        ('Fighting', 'Close combat between players', 'Action'),
+        ('Survival', 'Survive the world and enemies', 'Action'),
+        ('Stealth', 'Sneakily accomplish story objectives', 'Action'),
+        ('Battle Royale', 'Compete against many other players in open arenas', 'Action'),
+        ('MMORPG', 'Massively multiplayer role playing game', 'RPG'),
+        ('Action RPG', 'Control over character with rpg mechanics', 'RPG'),
+        ('Roguelike', 'Dungeon crawl through procedurally generated levels', 'RPG'),
+        ('JRPG', 'Japanese style role playing game', 'RPG'),
+        ('Isometric RPG', 'Role playing game with parallel projection', 'RPG'),
+        ('Racing', 'Driving cars fast', 'Simulation'),
+        ('Life Simulation', 'Controlling one or more artifical lives', 'Simulation'),
+        ('Sports', 'Playing sports that simulate those in real life', 'Simulation'),
+        ('Competitive', 'Non-real life sports turned competitive', 'Simulation'),
+        ('Platformer', 'Exploration and puzzle solving', 'Adventure'),
+        ('4X', 'Explore, expand, exploit, exterminate', 'Strategy'),
+        ('RTS', 'Real time strategy, make decisions where game time is continuous', 'Strategy'),
+        ('TBT', 'Turn based tactics', 'Strategy'),
+        ('Sandbox', 'Do anything, build everything', 'Action-Adventure'),
+    ]
+
     game_list = [
         ('World of Warcraft', 2004, 'wow.jpg', 85, 'MMORPG', 'multiplayer'),
         ('Final Fantasy 14', 2013, 'ff14.jpg', 87, 'MMORPG', 'multiplayer'),
@@ -89,9 +86,9 @@ def data_entry():
         ('Divinity: Original Sin II', 2014, 'divinity2.jpg', 91, 'Isometric RPG', 'single/multi'),
         ('Pathfinder: Kingmaker', 2017, 'pathfinder.jpg', 91, 'Isometric RPG', 'singleplayer'),
         ('Disco Elysium', 2019, 'discoelysium.jpg', 91, 'Isometric RPG', 'singleplayer'),
+        ('Sekiro: Shadows Die Twice', 2019, 'sekiro.jpg', 92, 'Fighting', 'singleplayer'),
     ]
     
-    #need to update when implementing game devices
     game_device_list = [
         ('World of Warcraft', 'windows'),
         ('Final Fantasy 14', 'windows'),
@@ -134,6 +131,9 @@ def data_entry():
         ('Stardew Valley', 'xbox'),
     ]
 
+    c.executemany('INSERT INTO devices VALUES(?, ?);', device_list)
+    c.executemany('INSERT INTO genres VALUES(?, ?);', genre_list)
+    c.executemany('INSERT INTO subgenres VALUES(?, ?, ?);', subgenre_list)
     c.executemany('INSERT INTO games VALUES(?, ?, ?, ?, ?, ?);', game_list)
     c.executemany('INSERT INTO games_devices VALUES(?, ?);', game_device_list)
 
