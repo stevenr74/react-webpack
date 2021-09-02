@@ -87,6 +87,14 @@ def data_entry():
         ('Pathfinder: Kingmaker', 2017, 'pathfinder.jpg', 91, 'Isometric RPG', 'singleplayer'),
         ('Disco Elysium', 2019, 'discoelysium.jpg', 91, 'Isometric RPG', 'singleplayer'),
         ('Sekiro: Shadows Die Twice', 2019, 'sekiro.jpg', 92, 'Fighting', 'singleplayer'),
+        ('Civilation VI', 2016, 'civ6.jpg', 92, '4X', 'single/multi'),
+        ('Call of Duty: Warzone', 2020, 'warzone.jpg', 92, 'Shooter', 'multiplayer'),
+        ('PUBG', 2017, 'pubg.jpg', 85, 'Shooter', 'multiplayer'),
+        ('Deus Ex: Mankind Divided', 2016, 'mankinddivided.jpg', 85, 'Action RPG', 'singleplayer'),
+        ('Starcraft 2', 2010, 'sc2.jpg', 85, 'RTS', 'single/multi'),
+        ('Stellaris', 2016, 'stellaris.jpg', 92, '4X', 'singleplayer'),
+        ('Total War: Three Kingdoms', 2019, 'totalwar.jpg', 89, 'TBT', 'singleplayer'),
+        ('Mount & Blade II: Bannerlord', 2020, 'bannerlord.jpg', 96, 'Strategy', 'multiplayer'),
     ]
     
     game_device_list = [

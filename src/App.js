@@ -71,7 +71,7 @@ export function App() {
     window.location.reload();
   }
 
-  function info(){
+  function infoToggle(){
     if(about == false){
       setAbout(true);
     } else {
@@ -81,7 +81,7 @@ export function App() {
 
   return (
       <div className="app">
-            <Title refreshPage={refreshPage} info={info} />
+            <Title refreshPage={refreshPage} info={infoToggle} />
             {about ? <Info></Info> : null}
             {data.length ? <ImageContainer data={data} getSelections={getSelections} renderButton={true}/> : null}
             {results.length ? <Results /> : null}
