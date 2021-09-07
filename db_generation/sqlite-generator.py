@@ -78,7 +78,7 @@ def data_entry():
         ('Valheim', 2021, 'valheim.jpg', 94, 'Sandbox', 'single/multi'),
         ('Ark: Survival Evolved', 2017, 'ark.jpg', 94, 'Survival', 'single/multi'),
         ('Satisfactory', 2019, 'satisfactory.jpg', 94, 'Sandbox', 'singleplayer'),
-        ('Ghost of Tsushima', 2020, 'ghosts.jpg', 96, 'Fighting', 'singleplayer'),
+        ('Ghost of Tsushima', 2020, 'ghosts.jpg', 96, 'Action RPG', 'singleplayer'),
         ('RimWorld', 2016, 'rimworld.jpg', 96, 'Sandbox', 'singleplayer'),
         ('Factorio', 2013, 'factorio.jpg', 96, 'Sandbox', 'singleplayer'),
         ('Prison Architect', 2015, 'prisonarchitect.jpg', 96, 'Sandbox', 'singleplayer'),
@@ -86,7 +86,7 @@ def data_entry():
         ('Divinity: Original Sin II', 2014, 'divinity2.jpg', 91, 'Isometric RPG', 'single/multi'),
         ('Pathfinder: Kingmaker', 2017, 'pathfinder.jpg', 91, 'Isometric RPG', 'singleplayer'),
         ('Disco Elysium', 2019, 'discoelysium.jpg', 91, 'Isometric RPG', 'singleplayer'),
-        ('Sekiro: Shadows Die Twice', 2019, 'sekiro.jpg', 92, 'Fighting', 'singleplayer'),
+        ('Sekiro: Shadows Die Twice', 2019, 'sekiro.jpg', 92, 'Action RPG', 'singleplayer'),
         ('Civilation VI', 2016, 'civ6.jpg', 92, '4X', 'single/multi'),
         ('Call of Duty: Warzone', 2020, 'warzone.jpg', 92, 'Shooter', 'multiplayer'),
         ('PUBG', 2017, 'pubg.jpg', 85, 'Shooter', 'multiplayer'),
@@ -95,6 +95,8 @@ def data_entry():
         ('Stellaris', 2016, 'stellaris.jpg', 92, '4X', 'singleplayer'),
         ('Total War: Three Kingdoms', 2019, 'totalwar.jpg', 89, 'TBT', 'singleplayer'),
         ('Mount & Blade II: Bannerlord', 2020, 'bannerlord.jpg', 96, 'Strategy', 'multiplayer'),
+        ('Assassins Creed: Valhalla', 2020, 'valhalla.jpg', 88, 'Action RPG', 'singleplayer'),
+        ('Red Dead Redemption 2', 2029, 'rdr2.jpg', 95, 'Action RPG', 'singleplayer'),
     ]
     
     game_device_list = [

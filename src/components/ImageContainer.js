@@ -4,7 +4,7 @@ import ImagePicker from 'react-image-picker'
 const ImageContainer = ({ data, getSelections, renderButton }) => {
 
   const [images, setImage] = useState([]);
-    
+
   const initImages = importAll(require.context('./images', false, /\.(png|jpe?g|svg)$/));
 
   const onPick = (images) => {
@@ -17,17 +17,21 @@ const ImageContainer = ({ data, getSelections, renderButton }) => {
     return images;
   }
 
-
-  return (
-      <div>
-        <ImagePicker 
-          images={data.map((values) => ({src: initImages[values.img].default, value: values}))}
-          onPick={onPick}
-          multiple
-        />
-        {renderButton ? <button type="button" onClick={() => getSelections(images)}>Submit</button> : null}
-      </div>
-    )
+  try {
+    return (
+        <div>
+          <ImagePicker 
+            images={data.map((values) => ({src: initImages[values.img].default, value: values}))}
+            onPick={onPick}
+            multiple
+          />
+          {renderButton ? <button type="button" onClick={() => getSelections(images)}>Submit</button> : null}
+        </div>
+      )
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
 };
 
 export default ImageContainer;
