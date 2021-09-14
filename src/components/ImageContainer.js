@@ -1,11 +1,13 @@
-import React, {useState} from 'react'
+import React, {useState, useRef} from 'react'
 import ImagePicker from 'react-image-picker'
 
-const ImageContainer = ({ data, getSelections, renderButton }) => {
+const ImageContainer = ({ data, getSelections, renderButton}) => {
 
   const [images, setImage] = useState([]);
 
   const initImages = importAll(require.context('./images', false, /\.(png|jpe?g|svg)$/));
+
+  const clickRef = useRef();
 
   const onPick = (images) => {
     setImage({images});
@@ -17,6 +19,12 @@ const ImageContainer = ({ data, getSelections, renderButton }) => {
     return images;
   }
 
+
+  function handleClick() {
+    clickRef.current.scrollIntoView({ behavior: 'smooth' });
+  }
+
+
   try {
     return (
         <div>
@@ -25,7 +33,8 @@ const ImageContainer = ({ data, getSelections, renderButton }) => {
             onPick={onPick}
             multiple
           />
-          {renderButton ? <button type="button" onClick={() => getSelections(images)}>Submit</button> : null}
+          {renderButton ? <div ref={clickRef}></div> : null}
+          {renderButton ? <button type="button" onClick={() => { getSelections(images); handleClick(); } }>Submit</button> : null}
         </div>
       )
   } catch (error) {

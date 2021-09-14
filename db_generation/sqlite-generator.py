@@ -48,6 +48,7 @@ def data_entry():
         ('4X', 'Explore, expand, exploit, exterminate', 'Strategy'),
         ('RTS', 'Real time strategy, make decisions where game time is continuous', 'Strategy'),
         ('TBT', 'Turn based tactics', 'Strategy'),
+        ('Strategy Action RPG', 'Strategic decision making with action/rpg elements', 'Strategy'),
         ('Sandbox', 'Do anything, build everything', 'Action-Adventure'),
     ]
 
@@ -94,9 +95,10 @@ def data_entry():
         ('Starcraft 2', 2010, 'sc2.jpg', 85, 'RTS', 'single/multi'),
         ('Stellaris', 2016, 'stellaris.jpg', 92, '4X', 'singleplayer'),
         ('Total War: Three Kingdoms', 2019, 'totalwar.jpg', 89, 'TBT', 'singleplayer'),
-        ('Mount & Blade II: Bannerlord', 2020, 'bannerlord.jpg', 96, 'Strategy', 'multiplayer'),
+        ('Mount & Blade II: Bannerlord', 2020, 'bannerlord.jpg', 96, 'Strategy Action RPG', 'multiplayer'),
         ('Assassins Creed: Valhalla', 2020, 'valhalla.jpg', 88, 'Action RPG', 'singleplayer'),
         ('Red Dead Redemption 2', 2029, 'rdr2.jpg', 95, 'Action RPG', 'singleplayer'),
+        ('Age of Empires 2: Definitive Edition', 2019, 'aoe2.jpg', 90, 'RTS', 'single/multi'),
     ]
     
     game_device_list = [

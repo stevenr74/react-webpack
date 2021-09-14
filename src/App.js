@@ -10,8 +10,9 @@ export function App() {
   const [data, setData] = useState([]);
   const [selections, setSelections] = useState([]);
   const [results, setResults] = useState([]);
-  const [about, setAbout] = useState(false);
+  const [about, setAbout] = useState(true);
   const isInitialMount = useRef(true);
+
 
   const retrieveData = async() => {
       try {
@@ -78,6 +79,7 @@ export function App() {
       setAbout(false);
     }
   }
+
 
   return (
       <div className="app">
