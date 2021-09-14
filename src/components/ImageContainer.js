@@ -43,7 +43,7 @@ const ImageContainer = ({ data, getSelections, renderButton}) => {
       )
   } catch (error) {
     console.log(error);
-    return false;
+    return(<h1>An error occured, please try again.</h1>)
   }
 };
 
