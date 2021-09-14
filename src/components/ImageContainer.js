@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react'
+import React, {useState, useRef, useEffect} from 'react'
 import ImagePicker from 'react-image-picker'
 
 const ImageContainer = ({ data, getSelections, renderButton}) => {
@@ -7,7 +7,7 @@ const ImageContainer = ({ data, getSelections, renderButton}) => {
 
   const initImages = importAll(require.context('./images', false, /\.(png|jpe?g|svg)$/));
 
-  const clickRef = useRef();
+  const ref = useRef(null);
 
   const onPick = (images) => {
     setImage({images});
@@ -18,23 +18,27 @@ const ImageContainer = ({ data, getSelections, renderButton}) => {
     r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
     return images;
   }
-
-
-  function handleClick() {
-    clickRef.current.scrollIntoView({ behavior: 'smooth' });
-  }
+ 
+  useEffect(() => {
+    if(renderButton == false){
+      window.scrollTo({
+        top: document.body.scrollHeight - ref.current.clientHeight, 
+        left: 0,
+        behavior: 'smooth'
+      });
+    }
+  })
 
 
   try {
     return (
-        <div>
+        <div ref={ref}>
           <ImagePicker 
             images={data.map((values) => ({src: initImages[values.img].default, value: values}))}
             onPick={onPick}
             multiple
           />
-          {renderButton ? <div ref={clickRef}></div> : null}
-          {renderButton ? <button type="button" onClick={() => { getSelections(images); handleClick(); } }>Submit</button> : null}
+          {renderButton ? <button type="button" onClick={() => { getSelections(images) } }>Submit</button> : null}
         </div>
       )
   } catch (error) {
