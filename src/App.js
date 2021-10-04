@@ -1,9 +1,12 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, Component } from 'react';
 import ImageContainer from './components/ImageContainer';
 import Title from './components/Title';
 import Results from './components/Results';
 import Info from './components/Info';
 import {load, selectGenres} from './db/GetData.js';
+
+import ClipLoader from "react-spinners/ClipLoader"
+import {css} from '@emotion/react'
 
 
 export function App() {
@@ -13,7 +16,6 @@ export function App() {
   const [about, setAbout] = useState(true);
   const isInitialMount = useRef(true);
 
-
   const retrieveData = async() => {
       try {
           var response = await load();
@@ -22,6 +24,15 @@ export function App() {
           console.log(error);
       }
   };
+
+  const loaderCSS = css`
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  `;
   
   //on mount
   useEffect(() => {
@@ -80,12 +91,11 @@ export function App() {
     }
   }
 
-
   return (
       <div className="app">
             <Title refreshPage={refreshPage} info={infoToggle} />
             {about ? <Info></Info> : null}
-            {data.length ? <ImageContainer data={data} getSelections={getSelections} renderButton={true}/> : null}
+            {data.length ? <ImageContainer data={data} getSelections={getSelections} renderButton={true}/> : <ClipLoader color={"#ffffff"} css={loaderCSS} />}
             {results.length ? <Results /> : null}
             {results.length ? <ImageContainer data={results} getSelections={null} renderButton={isInitialMount.current}/>: null}
       </div>
