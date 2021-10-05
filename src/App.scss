@@ -22,13 +22,15 @@ h1 {
 }
 
 @media only screen and (max-width: 900px) {
-  .title {
-    max-height: 20vw;
-  }
   
   h1 {
-    font-size: 3.5vw;
-    left: 60%;
+    font-size: 4vw;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    left: 40%;
   }
 
   .info {
