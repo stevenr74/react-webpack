@@ -20,13 +20,15 @@ const ImageContainer = ({ data, getSelections, renderButton}) => {
   }
  
   useEffect(() => {
-    if(renderButton == false){
-      window.scrollTo({
-        top: document.body.scrollHeight - ref.current.clientHeight, 
-        left: 0,
-        behavior: 'smooth'
-      });
-    }
+    try{
+      if(renderButton == false){
+        window.scrollTo({
+          top: document.body.scrollHeight - ref.current.clientHeight, 
+          left: 0,
+          behavior: 'smooth'
+        });
+      }
+    } catch (error) { }
   })
 
 
@@ -41,10 +43,7 @@ const ImageContainer = ({ data, getSelections, renderButton}) => {
           {renderButton ? <button type="button" onClick={() => { getSelections(images) } }>Submit</button> : null}
         </div>
       )
-  } catch (error) {
-    console.log(error);
-    return(<h1>An error occured, please try again.</h1>)
-  }
+  } catch (error) { return(<h1>An error occured, please try again.</h1>) }
 };
 
 export default ImageContainer;
