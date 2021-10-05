@@ -15,7 +15,7 @@ h1 {
 
 .title {
   background-color: #303036;
-  padding: 10px;
+  padding: 16px;
   position: relative;
   text-align: center;
   overflow: hidden;
@@ -42,7 +42,7 @@ h1 {
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   text-align: center;
   margin: 0 auto;
-  max-width: 500px;
+  max-width: 700px;
 }
 
 .results {
@@ -59,6 +59,17 @@ h1 {
 }
 
 .shuffle:hover {
+  background-color: black;
+}
+
+.endshuffle {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 25px;
+}
+
+.endshuffle:hover {
   background-color: black;
 }
 

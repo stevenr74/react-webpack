@@ -1,5 +1,5 @@
 import React from 'react'
-import { Shuffle, Info } from 'phosphor-react'
+import { Shuffle, Info, ArrowCounterClockwise } from 'phosphor-react'
 
 const Title = (props) => {
     const {refreshPage, info} = props;
@@ -7,7 +7,7 @@ const Title = (props) => {
     return (
         <div className="title">
             <Info color="white" size={32} className="shuffle" onClick={info}/>
-            <Shuffle color="white" size={32} className="shuffle" onClick={refreshPage}/>
+            <ArrowCounterClockwise color="white" size={32} className="shuffle" onClick={refreshPage}/>
             <h1>Game Recommender</h1>
         </div>
     )
