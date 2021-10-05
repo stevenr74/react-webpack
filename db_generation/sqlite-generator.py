@@ -31,7 +31,7 @@ def data_entry():
 
     subgenre_list = [
         ('Shooter', 'Defeating enemies using weapons ', 'Action'),
-        ('Fighting', 'Close combat between players', 'Action'),
+        ('Fighting', 'Close combat between players', 'Adventure'),
         ('Survival', 'Survive the world and enemies', 'Action'),
         ('Stealth', 'Sneakily accomplish story objectives', 'Action'),
         ('Battle Royale', 'Compete against many other players in open arenas', 'Action'),
@@ -71,7 +71,7 @@ def data_entry():
         ('Starbound', 2016, 'starbound.jpg', 94, 'Sandbox', 'singleplayer'),
         ('Forza Horizon 4', 2018, 'forza4.jpg', 96, 'Racing', 'single/multi'),
         ('Need for Speed Heat', 2019, 'needforspeedheat.jpg', 92, 'Racing', 'single/multi'),
-        ('Star Wars Jedi: Fallen Order', 2019, 'fallenorder.jpg', 94, 'Fighting', 'singleplayer'),
+        ('Star Wars Jedi: Fallen Order', 2019, 'fallenorder.jpg', 94, 'Action RPG', 'singleplayer'),
         ('Super Meat Boy', 2010, 'supermeatboy.jpg', 91, 'Platformer', 'singleplayer'),
         ('Hollow Knight', 2017, 'hollowknight.jpg', 95, 'Platformer', 'singleplayer'),
         ('Apex Legends', 2019, 'apexlegends.jpg', 94, 'Battle Royale', 'multiplayer'),
@@ -99,6 +99,11 @@ def data_entry():
         ('Assassins Creed: Valhalla', 2020, 'valhalla.jpg', 88, 'Action RPG', 'singleplayer'),
         ('Red Dead Redemption 2', 2029, 'rdr2.jpg', 95, 'Action RPG', 'singleplayer'),
         ('Age of Empires 2: Definitive Edition', 2019, 'aoe2.jpg', 90, 'RTS', 'single/multi'),
+        ('Cuphead', 2017, 'cuphead.jpg', 97, 'Platformer', 'singleplayer'),
+        ('Super Smash Bros. Ultimate', 2018, 'smash.jpg', 97, 'Fighting', 'single/multi'),
+        ('Nickelodeon All-Star Brawl', 2021, 'allstarbrawl.jpg', 90, 'Fighting', 'single/multi'),
+        ('Dirt Rally 2.0', 2018, 'dirtrally2.jpg', 88, 'Racing', 'single/multi'),
+        ('The Crew 2', 2018, 'thecrew2.jpg', 94, 'Racing', 'single/multi'),
     ]
     
     game_device_list = [
