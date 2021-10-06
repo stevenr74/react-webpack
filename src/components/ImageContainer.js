@@ -4,9 +4,7 @@ import ImagePicker from 'react-image-picker'
 const ImageContainer = ({ data, getSelections, renderButton}) => {
 
   const [images, setImage] = useState([]);
-
   const initImages = importAll(require.context('./images', false, /\.(png|jpe?g|svg)$/));
-
   const ref = useRef(null);
 
   const onPick = (images) => {
@@ -18,7 +16,8 @@ const ImageContainer = ({ data, getSelections, renderButton}) => {
     r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
     return images;
   }
- 
+
+  //scrolls user screen to results section
   useEffect(() => {
     try{
       if(renderButton == false){

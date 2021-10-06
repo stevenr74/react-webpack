@@ -24,15 +24,6 @@ export function App() {
           console.log(error);
       }
   };
-
-  const loaderCSS = css`
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    margin: auto;
-  `;
   
   //on mount
   useEffect(() => {
@@ -48,7 +39,7 @@ export function App() {
     }
   }, [selections]);
 
-  //on selection
+  //on selection submittion
   const getSelections = (pics) => {
     setSelections(pics)
   }
@@ -58,7 +49,7 @@ export function App() {
       var resulting = await selectGenres(selections);
       var removes = [];
       
-      //resulting contains genre matches, so filter out any selections
+      //resulting set contains genre matches including prev selected, so filter out any those
       resulting.forEach(element => {
         selections.images.forEach(picked => {
           if(element.title == picked.value.title){
@@ -90,6 +81,15 @@ export function App() {
       setAbout(false);
     }
   }
+
+  const loaderCSS = css`
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  `;
 
   return (
       <div className="app">

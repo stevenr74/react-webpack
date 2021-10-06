@@ -17,7 +17,8 @@ const workerSettings =
               },
               },
     ];
-
+  
+//loads game data for initial selection
 export async function load(){
       const worker = await createDbWorker(
         workerSettings,
@@ -28,6 +29,7 @@ export async function load(){
       return await worker.db.query(`SELECT title, rating, mode, games.img, games.subgenre, genres.genre FROM games INNER JOIN subgenres on subgenres.subgenre = games.subgenre INNER JOIN genres on genres.genre = subgenres.genre ORDER BY RANDOM() LIMIT 8`);
   }
 
+//gets recommended games using subgenre to genre matching & review scores
 export async function selectGenres(selections){
       const returnLimit = 10;
       var genres = [];
@@ -43,7 +45,8 @@ export async function selectGenres(selections){
         genres.push(item.value.genre);
       });
 
-      const unique_genres = [...new Set(genres)];
+      //removes duplicate genres - could be improved by adding additional weighting to genres selected mutiple times
+      const unique_genres = [...new Set(genres)]; 
       
       unique_genres.forEach(element => {
         query = query.concat(` genres.genre = '`+element+`'`)

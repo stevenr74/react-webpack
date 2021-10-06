@@ -1,5 +1,5 @@
 import React from 'react'
-import { Shuffle, Info, ArrowCounterClockwise } from 'phosphor-react'
+import { Info, ArrowCounterClockwise } from 'phosphor-react'
 
 const Title = (props) => {
     const {refreshPage, info} = props;
