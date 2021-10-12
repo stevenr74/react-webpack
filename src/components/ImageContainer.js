@@ -17,7 +17,7 @@ const ImageContainer = ({ data, getSelections, renderButton}) => {
     return images;
   }
 
-  //scrolls user screen to results section
+  //scrolls user screen to results section on image load
   useEffect(() => {
     try{
       if(renderButton == false){
@@ -28,7 +28,7 @@ const ImageContainer = ({ data, getSelections, renderButton}) => {
         });
       }
     } catch (error) { }
-  })
+  }, [images])
 
 
   try {
