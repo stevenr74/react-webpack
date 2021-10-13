@@ -6,7 +6,8 @@ import Info from './components/Info';
 import {load, selectGenres} from './db/GetData.js';
 import ClipLoader from "react-spinners/ClipLoader"
 import {css} from '@emotion/react'
-import { ArrowCounterClockwise } from 'phosphor-react';
+import { faSync } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 
 export function App() {
@@ -98,7 +99,7 @@ export function App() {
             {data.length ? <ImageContainer data={data} getSelections={getSelections} renderButton={true}/> : <ClipLoader color={"#ffffff"} css={loaderCSS} />}
             {results.length ? <Results /> : null}
             {results.length ? <ImageContainer data={results} getSelections={null} renderButton={isInitialMount.current}/>: null}
-            {results.length ? <ArrowCounterClockwise color="white" size={48} className="endshuffle" onClick={refreshPage}/> : null}
+            {results.length ? <FontAwesomeIcon icon={faSync} className="endshuffle" onClick={refreshPage}/> : null}
       </div>
   );
 }

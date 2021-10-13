@@ -1,13 +1,14 @@
 import React from 'react'
-import { Info, ArrowCounterClockwise } from 'phosphor-react'
+import { faSync, faQuestionCircle } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Title = (props) => {
     const {refreshPage, info} = props;
 
     return (
         <div className="title">
-            <Info color="white" size={32} className="shuffle" onClick={info}/>
-            <ArrowCounterClockwise color="white" size={32} className="shuffle" onClick={refreshPage}/>
+            <FontAwesomeIcon icon={faQuestionCircle} className="shuffle" onClick={info}/>
+            <FontAwesomeIcon icon={faSync} className="shuffle" onClick={refreshPage}/>
             <h1>Game Recommender</h1>
         </div>
     )
